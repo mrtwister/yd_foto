@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Личный фотоблог Анатолия Горностаева">
+    <meta name="author" content="Роман Беляев">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Анатолий</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href=" http://yastatic.net/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!--<link href="grid.css" rel="stylesheet"> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1><a href="/">Главная</a> / {{ name }}</h1>
+      </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+      {% for link in list_links %}
+      {% if link.active %}
+        <a href="/{{ link.path }}" class="list-group-item active">{{ link.name }}</a>
+      {% else %}
+        <a href="/{{ link.path }}" class="list-group-item">{{ link.name }}</a>
+      {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-md-9">
+        {% for preview in list_prev %}
+            <p><img src="{{ preview }}" class="img-responsive"></p>
+        {% endfor %}
+      </div>
+    </div>
+  </div> <!-- /container -->
+  </body>
+
+</html>
